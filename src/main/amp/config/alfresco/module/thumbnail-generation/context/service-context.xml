@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	You under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<beans>
+	<bean id="custom.thumbnailRegistry" class="org.alfresco.extension.thumbnails.ThumbnailRegistryBootstrap"
+		depends-on="ThumbnailService" init-method="init">
+		<property name="thumbnailService" ref="ThumbnailService" />
+		<property name="thumbnailDefinitions">
+			<list>
+				<bean class="org.alfresco.repo.thumbnail.ThumbnailDefinition">
+					<property name="name" value="png_100x100" />
+					<property name="mimetype" value="image/png" />
+					<property name="transformationOptions">
+						<bean
+							class="org.alfresco.repo.content.transform.magick.ImageTransformationOptions">
+							<property name="resizeOptions">
+								<bean
+									class="org.alfresco.repo.content.transform.magick.ImageResizeOptions">
+									<property name="height" value="100" />
+									<property name="width" value="100" />
+									<property name="maintainAspectRatio" value="true" />
+									<property name="resizeToThumbnail" value="false" />
+								</bean>
+							</property>
+						</bean>
+					</property>
+				    <property name="placeHolderResourcePath" value="alfresco/extension/thumbnail/thumbnail_placeholder_customImageThumbnail.png" />					
+				</bean>
+				<bean class="org.alfresco.repo.thumbnail.ThumbnailDefinition">
+					<property name="name" value="png_200x200" />
+					<property name="mimetype" value="image/png" />
+					<property name="transformationOptions">
+						<bean
+							class="org.alfresco.repo.content.transform.magick.ImageTransformationOptions">
+							<property name="resizeOptions">
+								<bean
+									class="org.alfresco.repo.content.transform.magick.ImageResizeOptions">
+									<property name="height" value="200" />
+									<property name="width" value="200" />
+									<property name="maintainAspectRatio" value="true" />
+									<property name="resizeToThumbnail" value="false" />
+								</bean>
+							</property>
+						</bean>
+					</property>
+				    <property name="placeHolderResourcePath" value="alfresco/extension/thumbnail/thumbnail_placeholder_customImageThumbnail.png" />					
+				</bean>
+				<bean class="org.alfresco.repo.thumbnail.ThumbnailDefinition">
+					<property name="name" value="png_400x400" />
+					<property name="mimetype" value="image/png" />
+					<property name="transformationOptions">
+						<bean
+							class="org.alfresco.repo.content.transform.magick.ImageTransformationOptions">
+							<property name="resizeOptions">
+								<bean
+									class="org.alfresco.repo.content.transform.magick.ImageResizeOptions">
+									<property name="height" value="400" />
+									<property name="width" value="400" />
+									<property name="maintainAspectRatio" value="true" />
+									<property name="resizeToThumbnail" value="false" />
+								</bean>
+							</property>
+						</bean>
+					</property>
+				    <property name="placeHolderResourcePath" value="alfresco/extension/thumbnail/thumbnail_placeholder_customImageThumbnail.png" />					
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>
