@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="thumb:customThumbnailModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+    <description>Custom Thumbnail Content Model</description>
+    <author>Kyle Adams</author>
+    <version>1.0</version>
+
+    <imports>
+        <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+        <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+    </imports>
+
+    <namespaces>
+        <namespace uri="http://www.alfresco.org/model/extension/custom-thumbnail/1.0" prefix="thumb" />
+    </namespaces>
+
+    <!--===========================================================================================================
+        Constraints
+    ============================================================================================================-->
+
+    <constraints>
+    </constraints>
+
+    <!--===========================================================================================================
+        Types
+    ============================================================================================================-->
+
+    <types>
+    </types>
+
+    <aspects>
+        <!-- Custom Thumbnail Aspect -->
+        <aspect name="thumb:thumbnailAspect">
+            <title>Thumbnail Aspect</title>
+            <associations>
+            <association name="thumb:thumbnails">
+               <title>Thumbnails</title>
+               <target>
+                  <class>cm:thumbnail</class>
+                  <mandatory>false</mandatory>
+                  <many>true</many>
+               </target>
+            </association>
+         </associations>
+        </aspect>
+        <aspect name="thumb:sourceImageAspect">
+            <title>Source Image Aspect</title>
+            <associations>
+            <association name="thumb:sourceImage">
+               <title>Source Image</title>
+               <source>
+               	<many>true</many>
+               </source>
+               <target>
+                  <class>cm:content</class>
+                  <mandatory>false</mandatory>
+                  <many>true</many>
+               </target>
+            </association>
+         </associations>
+        </aspect>
+    </aspects>
+</model>
